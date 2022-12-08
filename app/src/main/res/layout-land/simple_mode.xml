@@ -12,9 +12,9 @@
         layout="@layout/output_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1150px"
-        android:layout_marginLeft="675px"
-        android:layout_marginRight="675px" />
+        android:layout_marginTop="250px"
+        android:layout_marginLeft="475px"
+        android:layout_marginRight="475px" />
 
     <RelativeLayout
         android:layout_width="match_parent"

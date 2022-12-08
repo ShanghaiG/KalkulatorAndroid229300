@@ -161,114 +161,67 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
         updateTextViews();
     }
 
-    public void addButton(View view) {
+    public void usePlusButton(View view) {
         setOperation("+");
     }
 
-    public void subButton(View view) {
+    public void useMinusButton(View view) {
         setOperation("-");
     }
 
-    public void mulButton(View view) {
+    public void useMultiplyButton(View view) {
         setOperation("×");
     }
 
-    public void divButton(View view) {
+    public void useDivideButton(View view) {
         setOperation("÷");
     }
 
-    public void zeroButton(View view) {
+    public void useZeroButton(View view) {
         addDigit("0");
     }
 
-    public void oneButton(View view) {
+    public void useOneButton(View view) {
         addDigit("1");
     }
 
-    public void twoButton(View view) {
+    public void useTwoButton(View view) {
         addDigit("2");
     }
 
-    public void threeButton(View view) {
+    public void useThreeButton(View view) {
         addDigit("3");
     }
 
-    public void fourButton(View view) {
+    public void useFourButton(View view) {
         addDigit("4");
     }
 
-    public void fiveButton(View view) {
+    public void useFiveButton(View view) {
         addDigit("5");
     }
 
-    public void sixButton(View view) {
+    public void useSixButton(View view) {
         addDigit("6");
     }
 
-    public void sevenButton(View view) {
+    public void useSevenButton(View view) {
         addDigit("7");
     }
 
-    public void eightButton(View view) {
+    public void useEightButton(View view) {
         addDigit("8");
     }
 
-    public void nineButton(View view) {
+    public void useNineButton(View view) {
         addDigit("9");
     }
 
-    public void backToHome(View view) {
+    public void openHomePage(View view) {
         Log.i("Button down", "Back to home");
         Intent intent = new Intent(getBaseContext(), MainActivity.class);
 //        intent.putExtra("calcData", calc);
         startActivity(intent);
     }
 
-//    **************************************************
-//    ****************  ADVANCED CALC  *****************
-//    **************************************************
-
-    public void sinButton(View view) {
-        addFunction("SIN");
-    }
-
-    public void cosButton(View view) {
-        addFunction("COS");
-    }
-
-    public void tanButton(View view) {
-        addFunction("TAN");
-    }
-
-    public void lnButton(View view) {
-        addFunction("LN");
-    }
-
-    public void logButton(View view) {
-        addFunction("LOG");
-    }
-
-    public void percentButton(View view) {
-        addFunction("%");
-    }
-
-    public void sqrtButton(View view) {
-        addFunction("√");
-    }
-
-    public void pow2Button(View view) {
-//        calc.setOperation("^");
-//        calc.getNumber(1).setNumber("2");
-
-        updateTextViews();
-    }
-
-    public void powYButton(View view) {
-        setOperation("^");
-    }
-
-    public void piButton(View view) {
-//        calc.getCurrentNumber().setNumber(3.14159265d);
-        updateTextViews();
-    }
 }
