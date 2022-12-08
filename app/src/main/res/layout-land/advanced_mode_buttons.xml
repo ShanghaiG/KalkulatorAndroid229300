@@ -79,17 +79,17 @@
                 app:cornerRadius="36dp" />
 
 
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/ac_button"
-                            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
-                            android:layout_width="122dp"
-                            android:layout_height="96dp"
-                            android:layout_margin="12dp"
-                            android:text="AC"
-                            android:textColor="@color/black"
-                            android:backgroundTint="#C8C8C8"
-                            android:textSize="40dp"
-                            app:cornerRadius="36dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/ac_button"
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                android:layout_width="122dp"
+                android:layout_height="96dp"
+                android:layout_margin="12dp"
+                android:text="AC"
+                android:textColor="@color/black"
+                android:backgroundTint="#C8C8C8"
+                android:textSize="40dp"
+                app:cornerRadius="36dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/c_button"
