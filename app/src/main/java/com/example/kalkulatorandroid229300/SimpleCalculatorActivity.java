@@ -16,7 +16,7 @@ import java.util.Objects;
 public class SimpleCalculatorActivity extends AppCompatActivity {
 
     private TextView inputText, outputText;
-//    private Calculator calc = new Calculator(10);
+    private CalculatorLogic calc = new CalculatorLogic(10);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,134 +31,129 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.setStatusBarColor(this.getResources().getColor(R.color.black_background));
 
-//        Bundle extras = getIntent().getExtras();
-//        if(extras != null) {
-//            if (Objects.equals(extras.getString("calculator"), "SIMPLE")) {
-//                setContentView(R.layout.simple_mode);
-//            } else if (Objects.equals(extras.getString("calculator"), "ADVANCED")) {
-//                setContentView(R.layout.advanced_calc);
-//            }
-//        }
-
-        setContentView(R.layout.simple_mode);
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+                setContentView(R.layout.simple_mode);
+        }
 
         inputText = findViewById(R.id.input_text);
         outputText = findViewById(R.id.output_text);
 
-//        if(extras != null){
-//
-//            if(extras.getSerializable("calcData") != null){
-//                Calculator tempCalc = (Calculator)extras.getSerializable("calcData");
-//                if(tempCalc != null){
-//                    calc = tempCalc;
-//                    updateTextViews();
-//                }
-//            }
-//        }
-//
-//        if(savedInstanceState != null){
-//            calc = (Calculator) savedInstanceState.getSerializable("calcData");
-//            updateTextViews();
-//        }
+        if(extras != null){
+
+            if(extras.getSerializable("calcData") != null){
+                CalculatorLogic tempCalc = (CalculatorLogic) extras.getSerializable("calcData");
+                if(tempCalc != null){
+                    calc = tempCalc;
+                    updateTextViews(calc, inputText, outputText);
+                }
+            }
+        }
+
+        if(savedInstanceState != null){
+            calc = (CalculatorLogic) savedInstanceState.getSerializable("calcData");
+            updateTextViews(calc, inputText, outputText);
+        }
 
     }
 
-//    @Override
-//    protected void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
-//        super.onSaveInstanceState(savedInstanceState);
-//        savedInstanceState.putSerializable("calcData", calc);
-//    }
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putSerializable("calcData", calc);
+    }
 
-    private void updateTextViews(){
+    protected void updateTextViews(CalculatorLogic calc, TextView inputText, TextView outputText){
         String inputString = "";
-//        if(Objects.equals(calc.getOperation(), "")){
-//            inputString = calc.getNumber(0).toString();
-//        } else {
-//            inputString = calc.getNumber(0).toString();
-//            inputString += calc.getOperation();
-//            if(!calc.getNumber(1).isEmpty())
-//                inputString += calc.getNumber(1).toString();
-//        }
+        if(Objects.equals(calc.getOperation(), "")){
+            inputString = calc.getNumber(0).toString();
+        } else {
+            inputString = calc.getNumber(0).toString();
+            inputString += calc.getOperation();
+            if(!calc.getNumber(1).isEmpty())
+                inputString += calc.getNumber(1).toString();
+        }
 
         inputText.setText(inputString);
-//        outputText.setText(getResult());
+        outputText.setText(getResult());
     }
 
-    private void addDigit(String digit){
+    protected void addDigit(String digit){
         Log.i("New digit", digit);
 
-//        calc.addDigit(digit);
-        updateTextViews();
+        calc.addDigit(digit);
+        updateTextViews(calc, inputText, outputText);
     }
 
-    private void setOperation(String operation){
+    protected void setOperation(String operation){
         Log.i("Button down", operation);
 
-//        calc.setOperation(operation);
-        updateTextViews();
+        calc.setOperation(operation);
+        updateTextViews(calc, inputText, outputText);
     }
 
-    private void addFunction(String func){
+    void addFunction(String func){
         Log.i("Button down", func);
 
-//        calc.getCurrentNumber().setFunction(func);
-        updateTextViews();
+        calc.getCurrentNumber().setFunction(func);
+        updateTextViews(calc, inputText, outputText);
     }
 
-//    private String getResult(){
-//        try{
-//            return calc.getResult();
-//        } catch (IllegalArgumentException e){
-//            calc.getNumber(0).setError(true);
-//            return getResources().getString(R.string.error);
-//        } catch (ArithmeticException e){
-//            return getResources().getString(R.string.divisionByZero);
-//        }catch (OutOfMemoryError e){
-//            return getResources().getString(R.string.tooBig);
-//        }
-//    }
-
-//    **************************************************
-//    ****************   SIMPLE CALC  ******************
-//    **************************************************
-
-    public void clearAll(View view){
-//        calc.clearAll();
-        updateTextViews();
+    protected String getResult(){
+        try{
+            return calc.getResult();
+        } catch (IllegalArgumentException e){
+            calc.getNumber(0).setError(true);
+            return getResources().getString(R.string.error);
+        } catch (ArithmeticException e){
+            return getResources().getString(R.string.divisionByZero);
+        }catch (OutOfMemoryError e){
+            return getResources().getString(R.string.tooBig);
+        }
     }
 
-    public void clearDigit(View view){
+
+    public void useClearAllButton(View view){
+        calc.clearAll();
+        updateTextViews(calc, inputText, outputText);
+    }
+
+    public void useClearDigitButton(View view){
         Log.i("Button down", "Clear");
 
-//        if(calc.getCurrentNumber().isEmpty()){
-//            calc.setOperation("");
-//        } else {
-//            calc.getCurrentNumber().clearDigit();
-//        }
+        if(calc.getCurrentNumber().isEmpty()){
+            calc.setOperation("");
+        } else {
+            calc.getCurrentNumber().clearDigit();
+        }
 
-        updateTextViews();
+        updateTextViews(calc, inputText, outputText);
     }
 
-    public void signChangeButton(View view){
+    public void useChangeSignButton(View view){
         Log.i("Button down", "signChange");
 
-//        calc.getCurrentNumber().signChange();
-        updateTextViews();
+        calc.getCurrentNumber().signChange();
+        updateTextViews(calc, inputText, outputText);
     }
 
-    public void pointButton(View view){
+    public void usePointButton(View view){
         Log.i("Button down", "Point");
 
-//        calc.getCurrentNumber().addPoint();
-        updateTextViews();
+        calc.getCurrentNumber().addPoint();
+        updateTextViews(calc, inputText, outputText);
     }
 
-    public void equalsButton(View view){
-//        calc.getNumber(0).setNumber(getResult());
-//        calc.getNumber(1).reset();
-//        calc.setOperation("");
+    public void useEqualsButton(View view){
+        calc.getNumber(0).setNumber(getResult());
+        calc.getNumber(1).reset();
+        calc.setOperation("");
 
-        updateTextViews();
+        updateTextViews(calc, inputText, outputText);
+    }
+
+    public void useProcentButton(View view) {
+        addFunction("%");
     }
 
     public void usePlusButton(View view) {
@@ -220,7 +215,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
     public void openHomePage(View view) {
         Log.i("Button down", "Back to home");
         Intent intent = new Intent(getBaseContext(), MainActivity.class);
-//        intent.putExtra("calcData", calc);
+        intent.putExtra("calcData", calc);
         startActivity(intent);
     }
 

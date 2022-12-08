@@ -13,6 +13,33 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="left"
+            android:orientation="horizontal">
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/back_button"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+
+                android:layout_marginLeft="26dp"
+                android:src="@drawable/ic_baseline_exit_to_app_24"
+                android:textColor="@color/white"
+                android:backgroundTint="#03A9F4"
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                android:textSize="20sp"
+                app:cornerRadius="36dp"
+                app:icon="@drawable/ic_baseline_exit_to_app_24"
+                android:onClick="openHomePage"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -314,6 +341,9 @@
                 android:onClick="useEqualsButton"/>
 
         </LinearLayout>
+
+
+
 
     </LinearLayout>
 

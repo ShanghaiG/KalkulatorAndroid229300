@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/black_background"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -13,7 +14,7 @@
         layout="@layout/output_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="800px"
+        android:layout_marginTop="200px"
         android:layout_marginLeft="50px"
         android:layout_marginRight="50px"
         />
@@ -23,7 +24,6 @@
         android:layout_height="match_parent"
         android:background="@color/black_background"
         android:gravity="bottom">
-
 
         <include
             layout="@layout/advanced_mode_buttons"

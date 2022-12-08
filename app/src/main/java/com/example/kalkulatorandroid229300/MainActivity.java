@@ -11,6 +11,8 @@ import android.view.WindowManager;
 
 public class MainActivity extends AppCompatActivity {
 
+    private CalculatorLogic calcData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if(extras != null){
-            calcData = (Calculator) extras.getSerializable("calcData");
+            calcData = (CalculatorLogic) extras.getSerializable("calcData");
         }
 
     }
@@ -36,18 +38,20 @@ public class MainActivity extends AppCompatActivity {
         Log.i("Button down", "simple");
         Intent intent = new Intent(getBaseContext(), SimpleCalculatorActivity.class);
         intent.putExtra("calculator", "SIMPLE");
-        if(calcData != null)
-            intent.putExtra("calcData", calcData);
+//        if(calcData != null)
+//            intent.putExtra("calcData", calcData);
         startActivity(intent);
         MainActivity.this.finish();
     }
 
     public void openAdvancedCalculator(View view) {
         Log.i("Button down", "advanced");
-        Intent intent = new Intent(getBaseContext(), CalcActivity.class);
+
+        Intent intent = new Intent(getBaseContext(), AdvancedCalculatorActivity.class);
         intent.putExtra("calculator", "ADVANCED");
-        if(calcData != null)
-            intent.putExtra("calcData", calcData);
+
+//        if(calcData != null)
+//            intent.putExtra("calcData", calcData);
         startActivity(intent);
         MainActivity.this.finish();
     }

@@ -383,12 +383,26 @@
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/zero_button"
-                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
-                android:layout_width="136dp"
+                android:id="@+id/back_button"
+                android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_margin="8dp"
-                android:gravity="left"
+                android:src="@drawable/ic_baseline_exit_to_app_24"
+                android:textColor="@color/white"
+                android:backgroundTint="#03A9F4"
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                android:textSize="10sp"
+                app:cornerRadius="36dp"
+                app:icon="@drawable/ic_baseline_exit_to_app_24"
+                android:onClick="openHomePage"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/zero_button"
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="8dp"
                 android:text="0"
                 android:textColor="@color/white"
                 android:backgroundTint="#9A9A9A"

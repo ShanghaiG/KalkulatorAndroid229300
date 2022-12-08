@@ -19,9 +19,6 @@ public class CalculatorLogic extends AppCompatActivity implements Serializable {
         this.maxNumberLength = maxNumberLength;
     }
 
-    public CalculatorLogic() {
-    }
-
     public int getMaxNumberLength(){
         return maxNumberLength;
     }
