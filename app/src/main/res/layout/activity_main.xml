@@ -8,45 +8,30 @@
 
     <android.widget.Button
         android:id="@+id/btn_simple"
-        android:layout_width="48pt"
-        android:layout_height="48pt"
-        android:background="@drawable/button_simple"
-        android:textSize="0pt"
+        android:layout_width="128pt"
+        android:layout_height="28pt"
+        android:onClick="moveToSimpleCalc"
+        android:text="Prosty kalkulator"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/space"
-        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41"
-        android:onClick="moveToSimpleCalc"
+        app:layout_constraintVertical_bias="0.406"
         tools:ignore="MissingConstraints,UsingOnClickInXml" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/simple"
-        android:textColor="@color/colorPrimary"
-        android:textSize="8pt"
-        app:layout_constraintEnd_toEndOf="@+id/btn_simple"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="@+id/btn_simple"
-        app:layout_constraintTop_toBottomOf="@+id/btn_simple" />
 
     <android.widget.Button
         android:id="@+id/btn_advanced"
-        android:layout_width="48pt"
-        android:layout_height="48pt"
-        android:background="@drawable/butotn1"
-        android:textSize="0pt"
+        android:layout_width="128pt"
+        android:layout_height="28pt"
+        android:onClick="moveToAdvancedCalc"
+        android:text="Kalkulator Naukowy"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toEndOf="@+id/space"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.409"
-        android:onClick="moveToAdvancedCalc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_simple"
+        app:layout_constraintVertical_bias="0.083"
         tools:ignore="MissingConstraints,UsingOnClickInXml" />
 
     <TextView
@@ -54,7 +39,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/advanced"
         android:textColor="@color/colorPrimary"
         android:textSize="8pt"
         app:layout_constraintEnd_toEndOf="@+id/btn_advanced"
@@ -68,60 +52,71 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
 
     <android.widget.Button
         android:id="@+id/btn_exit"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/ic_baseline_exit_to_app_24"
+        android:layout_width="128pt"
+        android:layout_height="28pt"
         android:onClick="closeApplication"
+        android:text="Wyjście"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_about_me" />
 
     <android.widget.Button
         android:id="@+id/btn_about_me"
-        android:layout_width="250dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="72dp"
-        android:background="@drawable/button_about_me"
+        android:layout_width="128pt"
+        android:layout_height="28pt"
         android:backgroundTint="@color/colorPrimary"
-        android:text="@string/about"
-        android:textColor="@color/icon_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/space"
         android:onClick="moveToAbout"
+        android:text="O aplikacji"
+        android:textColor="@color/icon_color"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_advanced"
+        app:layout_constraintVertical_bias="0.092"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/textView3"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/lib"
-        android:text="@string/calculator"
-        android:textColor="@color/colorPrimary"
-        android:textSize="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/space"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="355dp"
+        android:layout_height="181dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.437"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/version"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/version"
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintVertical_bias="0.092"
+        app:srcCompat="@drawable/logo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
