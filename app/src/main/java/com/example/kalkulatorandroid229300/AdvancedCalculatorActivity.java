@@ -77,7 +77,11 @@ public class AdvancedCalculatorActivity extends AppCompatActivity {
         }
 
         inputText.setText(inputString);
-        outputText.setText(getResult());
+        try {
+            outputText.setText(getResult());
+        } catch (Exception e) {
+            outputText.setText("0");
+        }
     }
 
     protected String getResult(){

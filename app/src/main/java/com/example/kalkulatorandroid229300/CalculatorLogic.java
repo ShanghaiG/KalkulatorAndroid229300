@@ -127,6 +127,7 @@ public class CalculatorLogic extends AppCompatActivity implements Serializable {
             throw new OutOfMemoryError();
         }
 
+
         return result;
     }
 
@@ -179,7 +180,13 @@ public class CalculatorLogic extends AppCompatActivity implements Serializable {
     }
 
     public String getResult(){
-        double result = calculate();
+        double result;
+        try {
+            result = calculate();
+        } catch (OutOfMemoryError e) {
+            number1.setError(true);
+            return "Zbyt duza wartosc";
+        }
 
         DecimalFormat df = new DecimalFormat("#.########");
         int precision = getMaxNumberLength() - df.format(result).indexOf('.') - 1;
